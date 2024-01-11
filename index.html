@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>2024 신년계획</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+
+    * {
+      font-family: 'Orbit', sans-serif;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bg {
+      background-image: url('https://i.pinimg.com/564x/ed/60/cc/ed60cc600caa108e9762e2049f68ed2a.jpg');
+      background-position: center;
+      background-size: cover;
+      margin: auto;
+      width: 360px;
+    }
+
+    .title {
+      background-color: ivory;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      color: seagreen;
+      text-align: center;
+      padding: 4px 50px;
+    }
+
+    .bucket {
+      width: 160px;
+      height: 160px;
+      background-position: center;
+      background-size: cover;
+      margin: 5px 5px 15px;
+    }
+
+
+    .img1 {
+      background-image: url('https://i.pinimg.com/564x/65/5f/bb/655fbbf67eba51a55aed85b9a3ca9a94.jpg');
+    }
+
+    .img2 {
+      background-image: url('https://i.pinimg.com/564x/db/7b/3a/db7b3aa6d88d5e9434300fcc06d4e4a5.jpg');
+    }
+  </style>
+  <link rel="stylesheet" type="text/css"
+    href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/sparta-bucket2.css">
+
+<body class="bg center">
+  <h1 class="title center">2024 신년계획</h1>
+  <p class='msg''>올해 안에 못하면,,,,</p>
+  <p class=' msg''>,,,</p>
+  <p class='msg''>못하는건 없음 걍 함ㅋ</p>
+  <div class="flex-row wrap">
+    <div class=' bucket img1-t5 center'>꾸준한 운동!</div>
+  <div class='bucket img2-t5 center'>뭐해야되냐..</div>
+  <div class='bucket img2-t5 center'>뭔가 자기 개발ㅋ</div>
+  <div class='bucket img1-t5 center'>문화생활 쓰껄하게 즐기기</div>
+  <div class='bucket img1-t5 center'>돈 많이 모으기 ^____^</div>
+  <div class='bucket img2-t5 center'>독서..?</div>
+  </div>
+  <script>
+    // 페이지 로드 시 이전 상태 복원
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buckets = document.querySelectorAll(".bucket");
+      buckets.forEach((bucket, index) => {
+        // 로컬 스토리지에서 상태 읽기
+        const isDone = localStorage.getItem("bucket" + index) === "done";
+        if (isDone) {
+          bucket.classList.add("done");
+        }
+      });
+    });
+
+    // 버킷 리스트 클릭 이벤트
+    const buckets = document.querySelectorAll(".bucket");
+    buckets.forEach((bucket, index) => {
+      bucket.addEventListener("click", function () {
+        // 클래스 토글
+        bucket.classList.toggle("done");
+
+        // 로컬 스토리지에 상태 저장
+        if (bucket.classList.contains("done")) {
+          localStorage.setItem("bucket" + index, "done");
+        } else {
+          localStorage.setItem("bucket" + index, "");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
